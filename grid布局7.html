@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .grid-container{
+            text-align: center;
+            height: 400px;
+            padding: 100px;
+            display: grid;
+            grid-column-gap: 5px;
+            grid-row-gap: 5px;
+            background: pink;
+            grid-template-columns: [col1-start] 100px [col1-end] 5px [col2-start] 100px [col2-end] 5px [col3-start]
+            100px [col3-end] 5px [col4-start] 100px [col4-end];
+            grid-template-rows: [row1-start] auto [row1-end] 5px [row2-start] auto [row2-end] 5px [row3-start] auto
+             [row3-end] 5px [row4-start] auto [row4-end] 5px [row5-start] auto [row5-end];
+
+
+        }
+
+
+        .a { grid-column: col1-start / col3-end; grid-row: row1-start;
+            background: #ffffff;}
+        .b { grid-column: col4-start / col4-end; grid-row: row1-start / row5-end; background: orange; }
+        .c { grid-column: col1-start; grid-row: row2-start; background: #ffffff;}
+        .d { grid-column: col2-start; grid-row: row2-start; background: #ffffff;}
+        .e { grid-column: col3-start; grid-row: row2-start; background: #ffffff;}
+        .f { grid-column: col1-start / col2-end; grid-row: row3-start; background: #ffffff;}
+        .g { grid-column: col3-start; grid-row: row3-start; background: #ffffff;}
+        .h { grid-column: col1-start; grid-row: row4-start; background: #ffffff;}
+        .i { grid-column: col2-start / col3-end; grid-row: row4-start; background: #ffffff;}
+        .j { grid-column: col1-start / col3-end; grid-row: row5-start; background: #ffffff;}
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="item a">a</div>
+        <div class="item b">b</div>
+        <div class="item c">c</div>
+        <div class="item d">d</div>
+        <div class="item e">e</div>
+        <div class="item f">f</div>
+        <div class="item g">g</div>
+        <div class="item h">h</div>
+        <div class="item i">i</div>
+        <div class="item j">j</div>
+    </div>
+</body>
+</html>
