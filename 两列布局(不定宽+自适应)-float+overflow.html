@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #left {
+            margin-right: 10px;
+            float: left;  /*只设置浮动,不设宽度*/
+            height: 500px;
+            background-color: #f00;
+        }
+        #right {
+            overflow: hidden;  /*触发bfc*/
+            height: 500px;
+            background-color: #0f0;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div id="left">左列不定宽</div>
+        <div id="right">右列自适应</div>
+    </div>
+</body>
+</html>

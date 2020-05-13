@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #parent{
+            display: flex;
+        }
+        #left { /*不设宽度*/
+            margin-right: 10px;
+            height: 500px;
+            background-color: #f00;
+        }
+        #right {
+            height: 500px;
+            background-color: #0f0;
+            flex: 1;  /*均分#parent剩余的部分*/
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div id="left">左列不定宽</div>
+        <div id="right">右列自适应</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /*
+        缺点： 当出现滚动条时，内容区在滚动条后边显示，而且内容区仍旧被压缩(不推荐使用)
+         */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            /*最小宽度 = left *2 + right  */
+            min-width: 600px;
+        }
+        #left,#right{
+            width: 200px;
+            height: 200px;
+            background: pink;
+        }
+        #middle{
+            height: 200px;
+            background: green;
+        }
+        /*三列的设置*/
+        #left{
+            position: absolute;
+            left: 0;
+            top:0;
+            /*透明度 0 - 1*/
+            /*opacity: 0.5;*/
+        }
+        #right{
+            position: absolute;
+            top:0;
+            right: 0;
+        }
+        #middle{
+            margin: 0 200px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="left">
+        left
+    </div>
+    <div id="middle">
+        middle
+    </div>
+    <div id="right">
+        right
+    </div>
+</body>
+</html>

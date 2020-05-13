@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #left {
+            background-color: #f00;
+            float: left;
+            width: 100px;
+            height: 500px;
+        }
+        #right-fix {
+            float: right;
+            width: 100%;
+            margin-left: -100px; /*正值大于或等于#left的宽度,才能显示在同一行*/
+        }
+        #right{
+            margin-left: 100px; /*大于或等于#left的宽度*/
+            background-color: #0f0;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div id="left">左列定宽</div>
+    <div id="right-fix">
+        <div id="right">右列自适应</div>
+    </div>
+</body>
+</html>

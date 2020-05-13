@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 注意：#middle必须放在三列元素的最后面
+        缺点：如果有文字出现，布局就会错乱，导致扩展性不好。
+         */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            /*最小宽度= left*2 + right*/
+            min-width: 600px;
+        }
+        #left,#right{
+            width: 200px;
+            height: 200px;
+            background-color:pink;
+        }
+        #middle{
+            height: 200px;
+            background-color: green;
+        }
+        #left{
+            float: left;
+        }
+        #right{
+            float: right;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="left">
+        left
+    </div>
+    <div id="right">
+        right
+    </div>
+    <div id="middle">
+        middle
+    </div>
+</body>
+</html>

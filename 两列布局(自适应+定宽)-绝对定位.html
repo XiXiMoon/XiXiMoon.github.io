@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #parent{
+            position: relative;  /*子绝父相*/
+        }
+        #left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 100px;  /*大于等于#rigth的宽度*/
+            background-color: #f00;
+            height: 500px;
+        }
+        #right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #0f0;
+            width: 100px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div id="left">左列自适应</div>
+        <div id="right">右列定宽</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #parent {
+            height: 500px;
+            display: grid;
+            grid-template-columns: 100px 200px auto; /*设置3列,固定第一第二列的宽度,第三列auto或者1fr*/
+        }
+        #left {
+            margin-right: 10px;  /*间距*/
+            background-color: #f00;
+        }
+        #center {
+            margin-right: 10px;  /*间距*/
+            background-color: #eeff2b;
+        }
+        #right {
+            background-color: #0f0;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div id="left">左列定宽</div>
+        <div id="center">中间定宽</div>
+        <div id="right">右列自适应</div>
+    </div>
+</body>
+</html>

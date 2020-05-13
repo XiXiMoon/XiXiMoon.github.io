@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #parent {
+            height: 500px;
+            display: grid;
+            grid-template-columns: repeat(6,1fr);  /*6就是列数*/
+        }
+        .column:nth-child(odd){
+            background-color: #f00;
+        }
+        .column:nth-child(even){
+            background-color: #0f0;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div class="column">1 <p>我是文字我是文字我输文字我是文字我是文字</p></div>
+        <div class="column">2 <p>我是文字我是文字我输文字我是文字我是文字</p></div>
+        <div class="column">3 <p>我是文字我是文字我输文字我是文字我是文字</p></div>
+        <div class="column">4 <p>我是文字我是文字我输文字我是文字我是文字</p></div>
+        <div class="column">5 <p>我是文字我是文字我输文字我是文字我是文字</p></div>
+        <div class="column">6 <p>我是文字我是文字我输文字我是文字我是文字</p></div>
+    </div>
+</body>
+</html>
