@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 父元素display:flex;justify-content:center;子元素align-self:center; */
+        /* 无需宽高 */
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        #parent{
+            width:200px;
+            height:200px;
+            background-color: cadetblue;
+            display: flex;
+            justify-content: center;
+        }
+        #son{
+            background-color: chocolate;
+            align-self: center;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div id="son">
+            son
+        </div>
+    </div>
+</body>
+</html>

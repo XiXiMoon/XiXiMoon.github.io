@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* absoult+负margin(或transform) */
+        /* 负margin需要知道具体宽高 */
+        /* transform不需要知道具体宽高 */
+        /* 优缺点：
+        优点：使用margin兼容性好；不管是块级还是行内元素都可以实现
+        缺点：代码较多；脱离文档流；使用margin需要知道宽高；使用transform兼容性不好（ie9+） */
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .parent{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border: 1px solid;
+        }
+        .child{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -50px;
+            margin-top: -50px;
+            width: 100px;
+            height: 100px;
+            background: pink;
+            line-height: 100px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child">son</div>
+    </div>
+</body>
+</html>

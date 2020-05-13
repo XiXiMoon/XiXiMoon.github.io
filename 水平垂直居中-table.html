@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 父元素display:table-cell; text-align:center;vertical-align:middle;
+        子元素display:inline-block; */
+        /* 不需具体宽高 */
+        /* 优缺点：优点：简单；适用于宽度高度未知情况；兼容性好（ie8+）
+        缺点：设置tabl-cell的元素，宽度和高度的值设置百分比无效，需要给它的父元素设置display: table; 才生效；table-cell不感知margin，在父元素上设置table-row等属性，也会使其不感知height；设置float或
+        position会对默认布局造成破坏，可以考虑为之增加一个父div定义float等属性；内容溢出时会自动撑开父元素 */
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .parent {
+            width:600px;
+            height:600px;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+            background-color: blueviolet;
+        }
+        .child {
+            display: inline-block;
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child">son</div>
+    </div>
+</body>
+</html>

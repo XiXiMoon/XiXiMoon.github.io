@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* absolute + margin:auto */
+        /* 优缺点：
+        优点：无需关注宽高；兼容性较好(ie8+)
+        缺点：代码较多；脱离文档流 */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .parent{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            /*padding: 100px;*/
+            border: 1px solid;
+            margin: 100px auto;
+        }
+        .child{
+            position: absolute;
+            /*left+right+width+padding+margin=包含块的宽度*/
+            /*0 0 100 0 auto =300*/
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 100px;
+            height: 100px;
+            background: pink;
+            line-height: 100px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child">son</div>
+    </div>
+</body>
+</html>

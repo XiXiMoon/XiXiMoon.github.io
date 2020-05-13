@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 父元素display:flex; 子元素margin: auto */
+        /* 无需宽高 */
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        #parent{
+            width:200px;
+            height:200px;
+            background-color: cadetblue;
+            display: flex;
+        }
+        #son{
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div id="son">
+            son
+        </div>
+    </div>
+</body>
+</html>
