@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 优缺点：
+        优点：代码简洁，容易理解；
+        缺点：margin失效，采用border-spacing表格两边的间隔无法消除；不支持ie8- */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #parent {
+            width: 1200px;
+            height: 500px;
+            margin: 0 auto;
+            display: table;
+        }
+        .row {
+            display: table-row;
+        }
+        .item {
+            border: 1px solid #000;
+            display: table-cell;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div class="row">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+        <div class="row">
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+        </div>
+        <div class="row">
+            <div class="item">7</div>
+            <div class="item">8</div>
+            <div class="item">9</div>
+        </div>
+    </div>
+</body>
+</html>
