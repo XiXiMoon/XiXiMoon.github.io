@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        html, body {
+        height: 100%;
+        margin: 0;
+        }
+        #wrap{
+            width: 100%;
+            min-height: 100%;
+        }
+        /*内容区需要让出一部分区域，防止内容被盖住*/
+        #main{
+            padding-bottom: 30px;
+            background-color: antiquewhite;
+        }
+        /*wrap包裹内容的最小高度是100%，此时将footer的部分通过margin-top拉上去30px。*/
+        #footer{
+            width: 100%;
+            height: 30px;
+            background-color: yellow;
+            margin-top: -30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="main">
+            main<br/>
+            main<br/>
+        </div>
+    </div>
+    <div id="footer"></div>
+</body>
+</html>
