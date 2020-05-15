@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        span{
+            cursor: pointer;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            display: inline-block;
+            color: #333;
+            background: #ccc;
+            min-width: 80px;
+            padding: 0 10px;
+            margin: 10px;
+        }
+        .ech-t,.ech-bottom,.ech-top,.ech-right{
+            transition: all .4s;
+        }
+        .ech-t:hover {
+            transform: translate3d(0, -10px, 0);
+        }
+        .ech-b:hover {
+            transform: translate3d(0, 10px, 0);
+        }
+        .ech-l:hover {
+            transform: translate3d(-10px, 0, 0);
+        }
+        .ech-r:hover {
+            transform: translate3d(10px, 0, 0);
+        }
+
+    </style>
+</head>
+<body>
+    <span class="ech-t">up</span>
+    <span class="ech-b">bottom</span>
+    <span class="ech-l">left</span>
+    <span class="ech-r">right</span>
+</body>
+</html>

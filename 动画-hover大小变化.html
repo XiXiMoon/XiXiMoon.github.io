@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        span{
+            cursor: pointer;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            display: inline-block;
+            color: #333;
+            background: #ccc;
+            min-width: 80px;
+            padding: 0 10px;
+            margin: 10px;
+        }
+        .ech-big,.ech-small {
+            transition: all .4s;
+        }
+        .ech-big:hover{
+            transform: scale(1.2);
+        }
+        .ech-small:hover{
+            transform: scale(.9);
+        }
+    </style>
+</head>
+<body>
+    <span class="ech-big">big</span>
+    <span class="ech-small">small</span>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width:200px;
+        }
+        p {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        input[name="toggle"]:checked + p{   /*+兄弟选择器*/
+            -webkit-line-clamp:unset;
+        }
+        
+        label::after{
+            content: "显示更多"
+        }
+        input[name="toggle"]:checked ~ label::after{
+            content: "收起文本"
+        }
+
+        p.truncated + label {
+            display:block;
+        }
+        label{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 需求：
+    多行文本截断，显示省略号
+    "显示更多"按钮可以展开所有文本
+    展开文本后，按钮的文字变成"收起文本"
+    按钮的出现条件为当文本被截断时（如果你文本只有一行，那就没必要显示了吧😓） -->
+
+    <div class="box">
+        <input type="checkbox" name="toggle" id="toggle" style="display: none;">
+        <p>文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容</p>
+        <!-- <p>123</p> -->
+        <label for="toggle"></label>
+    </div>
+
+    <script>
+        let list = document.querySelectorAll("p");
+
+        list.forEach(item => {
+            item.classList[item.scrollHeight > item.offsetHeight ? "add" : "remove"]("truncated");
+        });
+    </script>
+</body>
+</html>
