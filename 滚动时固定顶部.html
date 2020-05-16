@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>固定在顶部</title>
+    <style>
+        body {
+            height: 3000px;
+            background-color: #eee;
+            margin: 0;
+        }
+
+        #sticky {
+            width: 800px;
+            height: 100px;
+            background-color: #3498db;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .rule {
+            height: 300px;
+            width: 60px;
+            background-color: #1abc9c;
+            text-align: center;
+            line-height: 300px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="rule">
+        300px
+    </div>
+    <div id="sticky"></div>
+
+    <script src="./js/sticky/sticky.js"></script>
+
+    <script>
+        window.onload = function() {
+            var element = document.getElementById("sticky");
+
+            var sticky = new Sticky(element)
+
+            sticky.on("onStick", function() {
+                console.log('固定在顶部')
+            })
+
+            sticky.on("onDetach", function() {
+                console.log('取消固定在顶部')
+            })
+        }
+
+        // 兼容性：IE7+
+        // 引入：script引入或import引入
+        // API：
+        //     初始化：var sticky = new Sticky("selector", options);
+        //     注意：当要兼容 IE7 的时候，不能传入选择符字符串，直接传入元素：
+        //         var stickyElem = document.getElementById("sticky");
+        //         var sticky = new Sticky(stickyElem)
+
+        //     offset
+        //         var sticky = new Sticky("#sticky", {
+        //             // 表示距离顶部 20px 的时候就固定
+        //             offset: 20
+        //         });
+
+        // 事件绑定：
+        //     从未固定状态到固定状态的时候：
+        //     sticky.on("onStick", function() {
+        //         console.log('固定在顶部')
+        //     })
+        //     从固定状态到未固定状态的时候：
+
+        //     sticky.on("onDetach", function() {
+        //         console.log('取消固定在顶部')
+        //     })
+        //     如果希望事件只执行一次，可以使用 once 进行绑定
+
+        //     sticky.once("onStick", function() {
+        //         console.log('固定在顶部')
+        //     })
+
+        // 类名
+        //     当固定在顶部的时候，会添加一个名为 sticky 的类名
+    </script>
+</body>
+</html>

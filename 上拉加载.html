@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上拉加载</title>
+    <style>     
+        #main {
+            overflow: auto;
+            padding: 10px;
+        }
+
+        #main img {
+            width: 100%;
+        }
+
+        #main p {
+            margin-bottom: 0px;
+            margin-top: 20px;
+        }
+
+        .loading {
+            width: 150px;
+            height: 10px;
+            margin: 0 auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .loading span {
+            display: inline-block;
+            width: 10px;
+            height: 100%;
+            margin-right: 3px;
+            border-radius: 50%;
+            background: #e74c3c;
+            -webkit-animation: load 1.04s ease infinite;
+        }
+
+        .loading span:last-child {
+            margin-right: 0px;
+        }
+
+        @-webkit-keyframes load {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .loading span:nth-child(1) {
+            -webkit-animation-delay: 0.13s;
+        }
+
+        .loading span:nth-child(2) {
+            -webkit-animation-delay: 0.26s;
+        }
+
+        .loading span:nth-child(3) {
+            -webkit-animation-delay: 0.39s;
+        }
+
+        .loading span:nth-child(4) {
+            -webkit-animation-delay: 0.52s;
+        }
+
+        .loading span:nth-child(5) {
+            -webkit-animation-delay: 0.65s;
+        }
+    </style>
+    <link rel="stylesheet" href="./css/normalize.css">
+</head>
+<body>
+    <div id="main">
+        <p> 模拟移动端后向上滑动 </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic architecto quis necessitatibus rerum, ex ab deserunt impedit laboriosam, rem adipisci minima! Voluptates eum ducimus explicabo incidunt, eligendi! Dolores itaque, voluptate!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic architecto quis necessitatibus rerum, ex ab deserunt impedit laboriosam, rem adipisci minima! Voluptates eum ducimus explicabo incidunt, eligendi! Dolores itaque, voluptate!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic architecto quis necessitatibus rerum, ex ab deserunt impedit laboriosam, rem adipisci minima! Voluptates eum ducimus explicabo incidunt, eligendi! Dolores itaque, voluptate!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic architecto quis necessitatibus rerum, ex ab deserunt impedit laboriosam, rem adipisci minima! Voluptates eum ducimus explicabo incidunt, eligendi! Dolores itaque, voluptate!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic architecto quis necessitatibus rerum, ex ab deserunt impedit laboriosam, rem adipisci minima! Voluptates eum ducimus explicabo incidunt, eligendi! Dolores itaque, voluptate!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic architecto quis necessitatibus rerum, ex ab deserunt impedit laboriosam, rem adipisci minima! Voluptates eum ducimus explicabo incidunt, eligendi! Dolores itaque, voluptate!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic architecto quis necessitatibus rerum, ex ab deserunt impedit laboriosam, rem adipisci minima! Voluptates eum ducimus explicabo incidunt, eligendi! Dolores itaque, voluptate!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic architecto quis necessitatibus rerum, ex ab deserunt impedit laboriosam, rem adipisci minima! Voluptates eum ducimus explicabo incidunt, eligendi! Dolores itaque, voluptate!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic architecto quis necessitatibus rerum, ex ab deserunt impedit laboriosam, rem adipisci minima! Voluptates eum ducimus explicabo incidunt, eligendi! Dolores itaque, voluptate!
+        </p>
+    </div>
+    <div class="loading" id="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <script src="./js/pulltoload/pulltoload.js"></script>
+    <script>
+        var pull = new PullToLoad("body")
+
+        pull.on("load", function(reset) {
+            setTimeout(function() {
+                // 模拟数据加载
+                var fragment = document.createDocumentFragment();
+                for (var i = 0; i < 5; i++) {
+                    var p = document.createElement("p");
+                    var text = document.createTextNode("new content Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic architecto quis necessitatibus rerum, ex ab deserunt impedit laboriosam, rem adipisci minima! Voluptates eum ducimus explicabo incidunt, eligendi! Dolores itaque, voluptate!")
+                    p.appendChild(text);
+                    fragment.appendChild(p);
+                }
+                main.append(fragment)
+                // 注意，当加载结束后，调用 reset 函数，以重置 loading
+                reset()
+            }, 1000)
+        })
+
+        // 引入：script引入或import引入
+
+        // 示例
+        //     var pull = new PullToLoad("#main", {
+        //         // 当滑动到距离底部还有 100px 的时候就触发加载事件
+        //         threshold: 100,
+        //         // 指定 loading 的 selector
+        //         loader: '#loader'
+        //     })
+
+        //     // 绑定加载事件
+        //     pull.on("load", function(reset){
+        //         setTimeout(function(){
+        //             // 注意，当加载结束后，调用 reset 函数，以重置 loading
+        //             reset()
+        //         }, 1000)
+        //     })
+
+        // API
+        //     初始化
+        //     var pulltoload = new PullToLoad(selector, options);
+
+        // options
+        //     1.threshold
+
+        //     默认值为 100，表示当滑动到距离底部还有 100px 的时候就触发加载事件。
+
+        //     2.loader
+        //     默认值为 #loader，表示加载时的 loading 的选择符。
+        //     注意: loading 需要用户自己定义，然后在这里传入该 loading 元素的选择符。
+
+        //     事件绑定
+        //     pulltoload.on("load", function(reset) {
+        //         // 模拟请求接口
+        //         setTimeout(function() {
+        //             // 注意，当加载结束后，调用 reset 函数，以重置 loading
+        //             reset()
+        //         }, 1000)
+        //     })
+    </script>
+</body>
+</html>

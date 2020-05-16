@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        html {
+            /*background-color: #fff;*/
+            background-color: #edece9;
+        }
+
+        body {
+            font-family: "helvetica neue", arial, sans-serif;
+            font-size: 14px;
+            color: #444;
+            overflow-x: hidden;
+        }
+
+        #waterfall {
+            position: relative;
+            min-height: 500px;
+            margin: 16px auto 0;
+            background-color: #edece9;
+        }
+
+        .pin {
+            position: absolute;
+            width: 216px;
+            font-size: 12px;
+            background-color: #fff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+            transition: opacity .4s ease-in-out;
+        }
+
+        .pin img {
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .description {
+            display: block;
+            padding: 0 16px;
+            margin: 10px 0;
+            line-height: 1.35em;
+            overflow: hidden;
+            word-wrap: break-word;
+        }
+
+
+        .loader {
+            max-width: 50px;
+            position: absolute;
+            height: 200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @-webkit-keyframes line-spin-fade-loader {
+            50% {
+                opacity: 0.3;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes line-spin-fade-loader {
+            50% {
+                opacity: 0.3;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .line-spin-fade-loader {
+            position: relative;
+        }
+
+        .line-spin-fade-loader>div:nth-child(1) {
+            top: 20px;
+            left: 0;
+            -webkit-animation: line-spin-fade-loader 1.2s 0.12s infinite ease-in-out;
+            animation: line-spin-fade-loader 1.2s 0.12s infinite ease-in-out;
+        }
+
+        .line-spin-fade-loader>div:nth-child(2) {
+            top: 13.63636px;
+            left: 13.63636px;
+            -webkit-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            -webkit-animation: line-spin-fade-loader 1.2s 0.24s infinite ease-in-out;
+            animation: line-spin-fade-loader 1.2s 0.24s infinite ease-in-out;
+        }
+
+        .line-spin-fade-loader>div:nth-child(3) {
+            top: 0;
+            left: 20px;
+            -webkit-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+            -webkit-animation: line-spin-fade-loader 1.2s 0.36s infinite ease-in-out;
+            animation: line-spin-fade-loader 1.2s 0.36s infinite ease-in-out;
+        }
+
+        .line-spin-fade-loader>div:nth-child(4) {
+            top: -13.63636px;
+            left: 13.63636px;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+            -webkit-animation: line-spin-fade-loader 1.2s 0.48s infinite ease-in-out;
+            animation: line-spin-fade-loader 1.2s 0.48s infinite ease-in-out;
+        }
+
+        .line-spin-fade-loader>div:nth-child(5) {
+            top: -20px;
+            left: 0;
+            -webkit-animation: line-spin-fade-loader 1.2s 0.6s infinite ease-in-out;
+            animation: line-spin-fade-loader 1.2s 0.6s infinite ease-in-out;
+        }
+
+        .line-spin-fade-loader>div:nth-child(6) {
+            top: -13.63636px;
+            left: -13.63636px;
+            -webkit-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            -webkit-animation: line-spin-fade-loader 1.2s 0.72s infinite ease-in-out;
+            animation: line-spin-fade-loader 1.2s 0.72s infinite ease-in-out;
+        }
+
+        .line-spin-fade-loader>div:nth-child(7) {
+            top: 0;
+            left: -20px;
+            -webkit-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+            -webkit-animation: line-spin-fade-loader 1.2s 0.84s infinite ease-in-out;
+            animation: line-spin-fade-loader 1.2s 0.84s infinite ease-in-out;
+        }
+
+        .line-spin-fade-loader>div:nth-child(8) {
+            top: 13.63636px;
+            left: -13.63636px;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+            -webkit-animation: line-spin-fade-loader 1.2s 0.96s infinite ease-in-out;
+            animation: line-spin-fade-loader 1.2s 0.96s infinite ease-in-out;
+        }
+
+        .line-spin-fade-loader>div {
+            background-color: #fff;
+            width: 4px;
+            height: 35px;
+            border-radius: 2px;
+            margin: 2px;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+            position: absolute;
+            width: 5px;
+            height: 15px;
+                background-color: #ed5565;
+        }
+    </style>
+    <link rel="stylesheet" href="./css/normalize.css">
+</head>
+<body>
+    <div id="waterfall">
+        <!--         <div class="pin">
+                    <img src="img/1.jpeg" alt="妹子">
+                    <p class="description">文字</p>
+                </div>
+                <div class="pin">
+                    <img src="img/2.jpeg" alt="妹子">
+                    <p class="description">文字</p>
+                </div>
+                <div class="pin">
+                    <img src="img/3.jpeg" alt="妹子">
+                    <p class="description">文字</p>
+                </div>
+                <div class="pin">
+                    <img src="img/4.jpeg" alt="妹子">
+                    <p class="description">文字</p>
+                </div>
+                <div class="pin">
+                    <img src="img/5.jpeg" alt="妹子">
+                    <p class="description">文字</p>
+                </div>
+                <div class="pin">
+                    <img src="img/6.jpeg" alt="妹子">
+                    <p class="description">文字</p>
+                </div>
+                <div class="pin">
+                    <img src="img/7.jpeg" alt="妹子">
+                    <p class="description">文字</p>
+                </div>
+                <div class="pin">
+                    <img src="img/8.jpeg" alt="妹子">
+                    <p class="description">文字</p>
+                </div>
+                <div class="pin">
+                    <img src="img/9.jpeg" alt="妹子">
+                    <p class="description">文字</p>
+                </div> -->
+    </div>
+    <div class="loader" id="loader">
+        <div class="loader-inner line-spin-fade-loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    
+    <script src="./js/waterfall/waterfall.js"></script>
+    <script>
+        window.onload = function(){
+
+            var waterfall = new WaterFall({
+                container: '#waterfall',
+                pins: ".pin",
+                loader: '#loader',
+                gapHeight: 20,
+                gapWidth: 20,
+                pinWidth: 216,
+                threshold: 100
+            });
+
+            waterfall.on("load", function(){
+
+                setTimeout(function(){
+
+                    // 生成模拟数据
+                    var mockData = {
+                        data: []
+                    };
+                    for (var i = 0; i < 10; i++) {
+                        mockData.data[i] = {
+                            src: './images/' + Math.ceil(Math.random() * 18) + '.png',
+                            title: '图片' + Math.ceil(Math.random() * 18)
+                        }
+                    }
+
+                    var arr = [];
+                    for (var i = 0, len = mockData.data.length; i < len; i++) {
+                        var data = mockData.data[i];
+                        arr.push('<div class="pin"><img src="' + data.src + '" class="img" alt="'+ data.title +'"> <p class="description">'+ data.title +'</p></div>')
+                    }
+
+                    // 调用 append 方法 检验是否所有的图片都具有高度后才会 append 进文档树中
+                    waterfall.append(arr.join(''), '.img')
+                }, 1000)
+            })
+        }
+
+        //兼容性：兼容到 IE8
+
+        // 引入：script引入或import引入
+
+        // 示例
+        //     var waterfall = new WaterFall({
+        //         container: '#waterfall',
+        //         pins: ".pin",
+        //         loader: '#loader',
+        //         gapHeight: 20,
+        //         gapWidth: 20,
+        //         pinWidth: 216,
+        //         threshold: 100
+        //     });
+
+        //     waterfall.on("load", function(){
+        //         setTimeout(function(){
+        //             var htmlStr = '<div class="pin"><img src="img/1.jpeg" class="img"><p class="description">文字</p></div>';
+        //             // 调用 append 方法，传入 html 字符串和图片的选择符，
+        //             // append 函数会检验是否所有的图片都具有高度后才会 append 进文档树中
+        //             waterfall.append(htmlStr, '.img')
+        //         }, 1000)
+        //     })
+
+        // API
+        //     初始化
+        //         var waterfall = new WaterFall(options);
+
+        //     options
+        //         container
+        //             必填，指定瀑布流容器的 selector
+
+        //         pins
+        //             必填，指定瀑布流添加的区块的 selector
+
+        //         loader
+        //             必填，指定瀑布流加载时的 loading 的 selector
+
+        //         gapHeight
+        //             默认值为 20，pins 上下间隔的距离
+
+        //         gapWidth
+        //             默认值为 20，pins 左右间隔的距离
+
+        //         pinWidth
+        //             默认值为 216，pins 的宽度为 216px
+
+        //         threshold
+        //             默认值为 100，当距离底部还是有 100px 的时候就开始加载
+
+        //         事件绑定
+        //             当需要加载新的数据时，会触发 load 事件
+        //             waterfall.on("load", function(){
+        //                 // 模拟数据加载
+        //                 setTimeout(function(){
+        //                     // 注意当加载新的 pins 的时候，需要调用 waterfall.append 函数
+        //                     waterfall.append(htmlStr, selector)
+        //                 }, 1000)
+        //             })
+
+        // 方法
+        //     append
+        //     该函数传入两个参数：
+        //     1.htmlStr 类似于
+        //     '<div class="pin"><img class="img"> ... </div>'
+        //     需要注意每个 pin 需要添加与 options.pins 一致的类名，图片元素需要添加类名，然后作为选择符，传入第二个参数
+
+        //     2、selector
+        //     图片的选择符，以上面的例子为例，应该传入
+
+        //     waterfall.append(htmlStr, '.img')
+        //     这是为了根据选择符筛选出要加载的图片，判断所有的图片都有了高度之后，才会添加进瀑布流中。
+    </script>
+</body>
+</html>

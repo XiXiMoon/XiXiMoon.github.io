@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉刷新</title>
+    <style>
+        .wrap {
+            padding: 0 10px 10px;
+        }
+        .refresh-element {
+            background-color: #1abc9c;
+        }
+    </style>
+    <link rel="stylesheet" href="./css/normalize.css">
+</head>
+<body>
+    <div id="wrap" class="wrap">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+
+    <script src="./js/pulltorefresh/pulltorefresh.js"></script>
+    <script>
+        var pull = new PullToRefresh({
+            target: 'body',
+            onRefresh: function(reset) {
+                // 模拟加载事件，注意当加载事件完成后，调用 reset 函数以恢复位置
+                setTimeout(function() {
+
+                    var p = document.createElement("p");
+                    p.innerHTML = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+                    document.getElementById("wrap").appendChild(p);
+
+                    reset();
+                }, 800)
+            }
+        })
+
+        // 引入：script引入或import引入
+
+        // 示例
+        //     var pull = new PullToRefresh({
+        //         target: 'body',
+        //         onRefresh: function(){
+        //             window.location.reload();
+        //         }
+        //     })
+
+        // API
+        //     初始化
+        //     var pulltorefresh = new PullToRefresh(options);
+        
+        // options
+        //     1.target
+        //     传入要下拉加载的元素的 id，如果是 body 元素，可以直接传入 "body"。
+        //     var pull = new PullToRefresh({
+        //         target: 'body'
+        //     })
+
+        //     2.threshold
+        //     默认值为 60，表示当大于 60px 的时候才会触发 relase 事件。
+
+        //     3.max
+        //     默认值为 80，表示最大可以拉到 80px 的高度。
+
+        //     4.reloadHeight
+        //     默认值为 50，表示释放后，高度回到 50px。
+
+        //     5.onRefresh
+        //     当 relase 时要执行的函数。
+
+        //     6.pullText
+        //     默认值为 下拉以刷新页面，表示下拉时的文字提示。
+
+        //     7.relaseText
+        //     默认值为 释放以刷新页面，表示释放前的文字。
+
+        //     8.refreshText
+        //     默认值为 刷新，表示释放后的文字。
+
+        //     9.pullIcon
+        //     默认值为 &#8675;，表示下拉时的图标。
+
+        //     10.refreshIcon
+        //     默认值为 &hellip;，表示释放后的图标。
+    </script>
+</body>
+</html>

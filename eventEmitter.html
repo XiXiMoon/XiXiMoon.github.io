@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>EventEmitter</title>
+</head>
+
+<body>
+    <script type="text/javascript" src="./js/eventEmitter/eventEmitter.js"></script>
+    
+    <script>
+        /**
+         * 作用：一个简单的 EventEmitter，可在浏览器中使用，帮助你实现事件的订阅和发布。
+         * 
+         * 使用：script引入 或 import引入都可以
+         * API:
+         *      var emitter = new EventEmitter();
+         * on： 添加一个事件监听器，支持链式调用
+         *      emitter.on(eventName, listener)
+         *      eventName 事件名称
+         *      listener 监听器函数
+         * off: 删除一个事件监听器，支持链式调用
+         *      emitter.off(eventName, listener)
+         *      eventName 事件名称
+         *      listener 监听器函数
+         * once：添加一个只能触发一次的事件监听器，支持链式调用
+         *      emitter.once(eventName, listener)
+         * emit：触发事件，支持链式调用
+         *      emitter.emit(eventName, args)
+         *      arg 数组形式，传入事件监听器的参数
+         * allOff：删除某个事件或者所有事件
+         *      emitter.allOff(eventName)
+         *      eventName 事件名称 如果不传，则删除所有事件
+         */
+
+
+    	var emitter = new EventEmitter();
+
+    	function handleOne(a, b, c) {
+    	    console.log('第一个监听函数', a, b, c)
+    	}
+
+    	function handleSecond(a, b, c) {
+    	    console.log('第二个监听函数', a, b, c)
+    	}
+
+    	function handleThird(a, b, c) {
+    	    console.log('第三个监听函数', a, b, c)
+    	}
+
+    	emitter.on("demo", handleOne)
+    	       .once("demo", handleSecond)
+    	       .on("demo", handleThird);
+
+    	emitter.emit('demo', [1, 2, 3]);
+    	// => 第一个监听函数 1 2 3
+    	// => 第二个监听函数 1 2 3
+    	// => 第三个监听函数 1 2 3
+
+    	emitter.off('demo', handleThird);
+    	emitter.emit('demo', [1, 2, 3]);
+    	// => 第一个监听函数 1 2 3
+
+    	emitter.allOff();
+    	emitter.emit('demo', [1, 2, 3]);
+    	// nothing
+    </script>
+</body>
+
+</html>

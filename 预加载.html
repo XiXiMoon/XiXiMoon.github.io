@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>预加载与进度条</title>
+    <style>
+        .loadPage {
+            background: #16bdcc;
+            z-index: 9999;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+        }
+
+        .loading {
+            position: absolute;
+            width: 100%;
+            left: 0%;
+            top: 25%;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .loading .inner {
+            overflow: hidden;
+            position: relative;
+            z-index: 10;
+            background-color: #fff;
+            margin: 0 5%;
+            text-align: left;
+        }
+
+        .loading-progress {
+            width: 0;
+            height: 2px;
+            background-color: #ffe400;
+            transition: width 1s ease;
+        }
+
+        .loading-num {
+            height: 50px;
+            font: 1.5em/30px arial;
+            color: #fff;
+        }
+
+        .main {
+            text-align: center;
+            margin-top: 150px;
+        }
+    </style>
+    <link rel="stylesheet" href="./css/normalize.css">
+</head>
+<body>
+    <div class="loadPage" id="loadPage">
+        <div class="loading">
+            <div class="loading-num" id="loading-num">0%</div>
+            <div class="inner">
+                <div class="loading-progress" id="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+    <div class="main">loading 消失，进入主内容区</div>
+
+    <script src="./js/preload/preload.js"></script>
+    <script>
+        var pics = [
+            "./images/1.jpeg",
+            "./images/2.jpeg",
+            "./images/3.jpeg",
+            "./images/4.jpeg",
+            "./images/5.jpeg",
+            "./images/6.jpeg",
+            "./images/7.jpeg",
+            "./images/8.jpeg"
+        ]
+
+        var preload = new Preload(pics, {
+            complete: function(successNum, failNum) {
+                setTimeout(function() {
+                    document.getElementById("loadPage").style.display = 'none'
+                }, 500)
+            },
+            progress: function(index, total, type) {
+                var progress = document.getElementById("loading-progress");
+                var num = document.getElementById("loading-num");
+
+                var percent = Math.floor(index / total * 100) + '%'
+
+                num.innerHTML = progress.style.width = percent;
+            }
+        });
+
+        // 兼容性：兼容到 IE7+
+        
+        // 引入：script引入或import引入
+
+        // 示例
+        //     var pics = [
+        //         "https://mqyqingfeng.github.io/demo/img/yayu.jpeg",
+        //         ...
+        //     ]
+
+        //     new Preload(pics, {
+        //         progress: function(index, total, type){
+        //             var percent = Math.floor(index / total * 100) + '%';
+        //             console.log(percent);
+        //         },
+        //         complete: function(sucessNum, failNum){
+        //             console.log('成功加载' + sucessNum + '张图片，加载失败' + failNum + '张图片');
+        //         }
+        //     });
+
+        // API
+        //     初始化
+        //     new Preload(options);
+
+        // options
+        //     1.progress
+        //         当加载完一张图片时就会触发该函数
+        //         new Preload(pics, {
+        //             // 函数有 3 个参数
+        //             // index 表示加载到第几张图片
+        //             // totoal 表示一共需要记载几张图片
+        //             // type 加载的类型，成功还是失败，成功为 'success'，失败为 'fail'
+        //             progress: function(index, total, type){
+        //                 var percent = Math.floor(index / total * 100) + '%';
+        //                 console.log(percent);
+        //             }
+        //         });
+
+        //     2.complete
+        //         当所有图片加载完毕时触发
+        //         new Preload(pics, {
+        //             // 函数有 2 个参数
+        //             // sucessNum 表示成功加载的个数
+        //             // failNum 表示加载失败的个数
+        //             complete: function(sucessNum, failNum){
+        //                 console.log('成功加载' + sucessNum + '张图片，加载失败' + failNum + '张图片');
+        //             }
+        //         });
+    </script>
+</body>
+</html>
