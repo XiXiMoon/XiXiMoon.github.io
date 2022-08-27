@@ -1,0 +1,220 @@
+<!--
+ * @Descripttion : 
+ * @Autor        : Lilong
+ * @Date         : 2022-08-27 22:10:51
+ * @LastEditTime : 2022-08-27 23:14:58
+ * @FilePath     : \1.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        html,body{
+            width:100%;
+            height:100%;
+        }
+        #app{
+            height:100%;
+            overflow: hidden;
+        }
+        .left{
+            float:left;
+            width: 16.66667%;
+            min-height: 100%;
+            background-color: rgb(50, 64, 87);
+        }
+        .right{
+            float:left;
+            width: 83.33333%;
+            height: 100%;
+            overflow: auto;
+        }
+        .head_container{
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 20px;
+            background-color: #eff2f7;
+            position: fixed;
+            width: 83.33333%;
+            box-sizing: border-box;
+        }
+        .content_container{
+            padding: 80px 20px 20px;
+            background-color: white;
+        }
+        .menu{
+            background-color: #324157;
+        }
+        .menu-item,.submenu_title{
+            color: #bfcbd9;
+            height: 56px;
+            line-height: 56px;
+            font-size: 14px;
+            padding: 0 20px;
+            cursor: pointer;
+            position: relative;
+            transition: border-color .3s,background-color .3s,color .3s;
+            box-sizing: border-box;
+            white-space: nowrap;
+        }
+        .submenu .menu .menu-item{
+            padding:0 45px 0 40px;
+        }
+        .submenu .menu{
+            background-color: #1f2d3d;
+        }
+        .breadcrumb{
+            font-size: 13px;
+        }
+        .breadcrumb_item_inner{
+            transition: color .15s linear;
+            color: #48576a;
+        }
+        .dropdown{
+            color: #48576a;
+            font-size: 14px;
+            display: inline-block;
+            position: relative;
+        }
+        .avator{
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            margin-right: 37px;
+        }
+        .dropdown-menu{
+            margin: 5px 0;
+            border: 1px solid #d1dbe5;
+            box-shadow: 0 2px 4px rgb(0 0 0 / 12%), 0 0 6px rgb(0 0 0 / 12%);
+            padding: 6px 0;
+            z-index: 10;
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100px;
+        }
+        .dropdown-menu_item{
+            line-height: 36px;
+            padding: 0 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="left">
+            <ul class="menu">
+                <li class="menu-item">首页</li>
+                <li class="submenu">
+                    <div class="submenu_title">数据管理</div>
+                    <ul class="menu">
+                        <li class="menu-item">用户列表</li>
+                        <li class="menu-item">商家列表</li>
+                        <li class="menu-item">食品列表</li>
+                        <li class="menu-item">订单列表</li>
+                    </ul>
+                </li>
+                <li class="submenu">
+                    <div class="submenu_title">添加数据</div>
+                    <ul class="menu">
+                        <li class="menu-item">添加商铺</li>
+                        <li class="menu-item">添加商品</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+            <div class="head_container">
+                <div class="breadcrumb">
+                    <span class="breadcrumb_item">
+                        <span class="breadcrumb_item_inner">首页</span>
+                        <span class="breadcrumb_separator">/</span>
+                    </span>
+                    <span class="breadcrumb_item">
+                        <span class="breadcrumb_item_inner">设置</span>
+                        <span class="breadcrumb_separator">/</span>
+                    </span>
+                    <span class="breadcrumb_item">
+                        <span class="breadcrumb_item_inner">管理员设置</span>
+                        <span class="breadcrumb_separator">/</span>
+                    </span>
+                </div>
+                <div class="dropdown">
+                    <img src="http://elm.cangdu.org/img/default.jpg" class="avator">
+                    <ul class="dropdown-menu" style="display:none;">
+                        <li class="dropdown-menu_item">首页</li>
+                        <li class="dropdown-menu_item">退出</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content_container">
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+                3 <br>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
