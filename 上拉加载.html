@@ -115,7 +115,7 @@
     <script>
         var pull = new PullToLoad("body")
 
-        pull.on("load", function(reset) {
+        pull.on("load", function(reset) { //function(reset)为订阅者，on是收集订阅者
             setTimeout(function() {
                 // 模拟数据加载
                 var fragment = document.createDocumentFragment();

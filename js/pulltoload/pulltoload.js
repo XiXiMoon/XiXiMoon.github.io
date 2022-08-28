@@ -209,7 +209,7 @@
             this._loader.style.display = 'block';
         }
 
-        this.emit("load", [this.reset.bind(this)])
+        this.emit("load", [this.reset.bind(this)]) //发布者，这里进行发布，通知订阅者
 
     };
 
