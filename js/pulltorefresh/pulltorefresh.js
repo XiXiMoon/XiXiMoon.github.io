@@ -45,7 +45,7 @@
         reloadHeight: 50
     }
 
-    // 记录当前状态 pending/pulling/releasing/refreshing
+    // 记录当前状态 pending(准备下拉时和下拉完成加载完数据后，touchstart)/pulling(正在下拉时)/releasing(释放前)/refreshing(释放后)
     var _state = 'pending';
     // touchstart 时的 Y 轴的位置
     var pullStartY = null;
